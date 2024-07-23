@@ -1,0 +1,4 @@
+Django==5.0.7 
+sentence-transformers==3.0.1 
+SpeechRecognition==3.10.4
+
