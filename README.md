@@ -1,2 +1,2 @@
 # VidSearch
-Search relevant scenes in videos with text
+Text Search for Relevant Video Scenes 
