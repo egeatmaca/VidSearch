@@ -5,8 +5,8 @@ import os
 from time import time
 
 if __name__ == '__main__':
-    url = 'https://www.youtube.com/watch?v=7VYP_2t4CJw'
-    query = 'open-source'
+    url = 'https://www.youtube.com/watch?v=zpBj5Z1TbyU'
+    query = 'noise'
 
     start_time = time()
     file_path = download_audio(url)
