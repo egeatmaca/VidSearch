@@ -31,6 +31,7 @@ input {
 .results {
     background-color: rgba(55, 173, 118, 0.3);
     border-color: rgba(42, 59, 51, 0.3);
+    border-radius: 5px;
     text-align: left;
     padding: 25px 5%;
 }
@@ -43,4 +44,8 @@ input {
 .results-metadata p {
     margin: 5px auto;
     font-size: 125%;
+}
+
+.results li {
+    margin-bottom: 5px;
 }
