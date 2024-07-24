@@ -35,7 +35,3 @@ def chunked_speech_to_text(file_path: str, interval_sec: int = 10) -> list[str]:
         texts = pool.map(speech_to_text, chunks)
 
     return texts
-
-
-    
-    

@@ -10,4 +10,4 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-CMD /bin/bash download-stt-model.sh && python playground.py
+CMD /bin/bash download-stt-model.sh && python manage.py runserver 0.0.0.0:8000
