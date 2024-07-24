@@ -3,6 +3,7 @@ from pydub.utils import make_chunks
 import speech_recognition as sr
 import os
 import tempfile
+import json
 import multiprocessing as mp
 
 
@@ -21,11 +22,11 @@ def speech_to_text(audio_segment: AudioSegment) -> str:
 
     with sr.AudioFile(file_path) as source:
         audio_listened = recognizer.record(source)
-        text = recognizer.recognize_vosk(audio_listened)
+        output = recognizer.recognize_vosk(audio_listened)
     
     os.remove(file_path)
     
-    return text
+    return json.loads(output).get('text')
 
 def chunked_speech_to_text(file_path: str, interval_sec: int = 10) -> list[str]:
     audio_segment = read_audio(file_path)

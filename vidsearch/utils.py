@@ -5,11 +5,17 @@ MINUTE_SECONDS = 60
 HOUR_SECONDS = 60 * MINUTE_SECONDS
 
 def seconds_to_time(seconds):
+    seconds = int(seconds)
+
     hour = seconds // HOUR_SECONDS
     seconds -= HOUR_SECONDS * hour
+    hour = '0' + str(hour) if len(str(hour)) < 2 else hour
 
     minute = seconds // MINUTE_SECONDS
     seconds -= MINUTE_SECONDS * minute
+    minute = '0' + str(minute) if len(str(minute)) < 2 else minute
+
+    seconds = '0' + str(seconds) if len(str(seconds)) < 2 else seconds
 
     return f'{hour}:{minute}:{seconds}'
         
