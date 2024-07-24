@@ -294,5 +294,8 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+# Collected static files
+/static/
+
 # Speech-to-Text Model
 model/

@@ -1,16 +1,33 @@
+{% load static %}
 <html>
+    <head>
+        <title> 🖥️ VidSearch 🔍 </title>
+        <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}"/>
+    </head>
     <body>
-        <h1> VidSearch </h1>
-        <form method="post" action="#">
-            {% csrf_token %} 
-            <input type="text" name="url" placeholder="YouTube URL"/>
-            <input type="text" name="query" placeholder="Search Query"/>
-            <input type="submit" value="Search in Vid!"/>
-        </form>
-        <ol>
-            {% for result in results %}
-                <li> {{ result }} </li>
-            {% endfor %}
-        </ol>
+        <div class="app">
+            <h1> 🖥️ VidSearch 🔍 </h1>
+            <form method="post" action="#">
+                {% csrf_token %} 
+                <input type="text" name="url" placeholder="YouTube URL"/>
+                <input type="text" name="query" placeholder="Search Query"/>
+                <input type="submit" value="Search in Video!"/>
+            </form>
+            <div class="results">
+                <div class="results-metadata">
+                    {% if video_title %}
+                        <p> <b> Video: </b> {{ video_title }} </p>
+                    {% endif %}
+                    {% if query %}
+                        <p> <b> Search: </b>  {{ query }} </p>
+                    {% endif %}
+                </div>
+                <ol>
+                {% for result in results %}
+                    <li> {{ result }} </li>
+                {% endfor %}
+                </ol>
+            </div>
+        </div>
     </body>
 </html>

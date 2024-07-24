@@ -28,7 +28,7 @@ def speech_to_text(audio_segment: AudioSegment) -> str:
     
     return json.loads(output).get('text')
 
-def chunked_speech_to_text(file_path: str, interval_sec: int = 10) -> list[str]:
+def chunked_speech_to_text(file_path: str, interval_sec: int = 20) -> list[str]:
     audio_segment = read_audio(file_path)
     chunks = make_chunks(audio_segment, interval_sec*1000)
 

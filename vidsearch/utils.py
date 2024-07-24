@@ -19,7 +19,7 @@ def seconds_to_time(seconds):
 
     return f'{hour}:{minute}:{seconds}'
         
-def format_results(url, results, results_idx):
+def format_results(results, results_idx):
     results_formatted = []
     for result, idx in zip(results, results_idx):
         seconds = settings.CHUNK_SECONDS * idx

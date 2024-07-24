@@ -17,9 +17,21 @@ def index(request):
         query = request.POST.get('query')
 
         file_path = download_audio(url)
-        texts = chunked_speech_to_text(file_path, interval_sec=settings.CHUNK_SECONDS)
-        os.remove(file_path)
-        results, results_idx = semantic_search(query, texts)
-        results_formatted = format_results(url, results, results_idx)
 
-        return render(request, 'index.html', { 'results': results_formatted })
+        texts = chunked_speech_to_text(file_path, interval_sec=settings.CHUNK_SECONDS)
+
+        video_title = os.path.sep.join(
+            file_path.split(os.path.sep)[-1].split('.')[:-1]
+        )
+        os.remove(file_path)
+        
+        results, results_idx = semantic_search(query, texts)
+        results = format_results(results, results_idx)
+
+        context = {
+            'video_title': video_title,
+            'query': query,
+            'results': results
+        }
+
+        return render(request, 'index.html', context)
